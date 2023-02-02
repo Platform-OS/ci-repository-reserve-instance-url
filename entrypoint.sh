@@ -40,7 +40,9 @@ case $METHOD in
     else
       INSTANCE_DOMAIN=$(cat .log)
     fi
-    echo "instance-domain=$INSTANCE_DOMAIN" >> $GITHUB_OUTPUT
+
+    echo "mpkit-url=https://$INSTANCE_DOMAIN" >> $GITHUB_OUTPUT
+    echo "report-path=${INSTANCE_DOMAIN}/$(date +'%Y-%m-%d-%H-%M-%S')" >> $GITHUB_OUTPUT
     ;;
 
   test)
