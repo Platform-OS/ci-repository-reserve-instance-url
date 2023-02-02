@@ -13,16 +13,17 @@ CLIENT=${GITHUB_REPOSITORY}--${GITHUB_RUN_ID}--${GITHUB_RUN_NUMBER:-0}
 CLIENT=${CLIENT/\//--}
 
 request() {
-  curl -sS  -X$1 \
+  curl -sSf  -X$1 \
     -H "Authorization: Bearer $POS_CI_REPO_ACCESS_TOKEN" \
-    -H 'Content-type: application/json' ${CI_REPO_URL}/${2:-} \
+    -H 'Content-type: application/json' \
     -d "{\"client\":\"$CLIENT\"}" \
-    --fail-with-body
+    ${CI_REPO_URL}/${2:-}
 }
 
 case $METHOD in
 
   release)
+    echo releasing instance
     request DELETE release
     ;;
 
