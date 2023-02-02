@@ -9,6 +9,9 @@ inputs:
   repository-url:  # id of input
     description: 'url of the instance repository'
     required: true
+  pos-ci-repo-token:  # id of input
+    description: 'pos cli ci repo access token'
+    required: true
 # outputs:
 #   time: # id of output
 #     description: 'The time we greeted you'
@@ -18,3 +21,4 @@ runs:
   args:
     - ${{ inputs.method }}
     - ${{ inputs.repository-url }}
+    - ${{ inputs.pos-ci-repo-token }}
