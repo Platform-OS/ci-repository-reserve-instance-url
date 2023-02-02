@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM alpine:3.10
+FROM alpine:3.15
 MAINTAINER Darek <darek@platformos.com>
 
 RUN apk add --update --no-cache curl

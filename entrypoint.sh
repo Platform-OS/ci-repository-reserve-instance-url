@@ -13,10 +13,11 @@ CLIENT=${GITHUB_REPOSITORY}--${GITHUB_RUN_ID}--${GITHUB_RUN_NUMBER:-0}
 CLIENT=${CLIENT/\//--}
 
 request() {
-  curl -sSf  -X$1 \
+  curl -s  -X$1 \
     -H "Authorization: Bearer $POS_CI_REPO_ACCESS_TOKEN" \
     -H 'Content-type: application/json' \
     -d "{\"client\":\"$CLIENT\"}" \
+    --fail-with-body \
     ${CI_REPO_URL}/${2:-}
 }
 
@@ -28,7 +29,17 @@ case $METHOD in
     ;;
 
   reserve)
-    MPKIT_URL=$(request POST reserve)
+    set +e
+    request POST reserve > .log
+    RESCODE=$?
+    set -e
+    if [ $RESCODE != 0 ]; then
+      echo "Reserve request failed. [${RESCODE}]"
+      cat .log
+      exit 2137
+    else
+      MPKIT_URL=$(cat .log)
+    fi
     echo "MPKIT_URL=$MPKIT_URL" >> $GITHUB_ENV
 
     REPORT_PATH=$(echo $MPKIT_URL | cut -d'/' -f3)/$(date +'%Y-%m-%d-%H-%M-%S')
