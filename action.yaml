@@ -13,10 +13,8 @@ inputs:
     description: 'pos cli ci repo access token'
     required: true
 outputs:
-  mpkit-url: # id of output
-    description: 'reserved instance url'
-  report-path:
-    description: 'report-path'
+  instance-domain: # id of output
+    description: 'reserved instance domain'
 runs:
   using: 'docker'
   image: 'Dockerfile'

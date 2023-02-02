@@ -38,13 +38,9 @@ case $METHOD in
       cat .log
       exit 2137
     else
-      MPKIT_URL=$(cat .log)
+      INSTANCE_DOMAIN=$(cat .log)
     fi
-    echo "mpkit-url=$MPKIT_URL" >> $GITHUB_OUTPUT
-
-    # perhaps it shouldn't be here
-    REPORT_PATH=$(echo $MPKIT_URL | cut -d'/' -f3)/$(date +'%Y-%m-%d-%H-%M-%S')
-    echo "report-path=$REPORT_PATH" >> $GITHUB_OUTPUT
+    echo "instance-domain=$INSTANCE_DOMAIN" >> $GITHUB_OUTPUT
     ;;
 
   test)
