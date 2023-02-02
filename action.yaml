@@ -1,0 +1,20 @@
+# action.yml
+name: 'Get POS CI Instance URL'
+description: 'populate env with ci-instance-url and report-url variables'
+inputs:
+  method:  # id of input
+    description: 'method to execute. either reserve or release'
+    required: true
+    default: 'reserve'
+  repository-url:  # id of input
+    description: 'url of the instance repository'
+    required: true
+# outputs:
+#   time: # id of output
+#     description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.method }}
+    - ${{ inputs.repository-url }}
