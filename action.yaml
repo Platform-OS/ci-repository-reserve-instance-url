@@ -12,9 +12,11 @@ inputs:
   pos-ci-repo-token:  # id of input
     description: 'pos cli ci repo access token'
     required: true
-# outputs:
-#   time: # id of output
-#     description: 'The time we greeted you'
+outputs:
+  mpkit-url: # id of output
+    description: 'reserved instance url'
+  report-path:
+    description: 'report-path'
 runs:
   using: 'docker'
   image: 'Dockerfile'

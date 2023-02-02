@@ -40,10 +40,11 @@ case $METHOD in
     else
       MPKIT_URL=$(cat .log)
     fi
-    echo "MPKIT_URL=$MPKIT_URL" >> $GITHUB_ENV
+    echo "mpkit-url=$MPKIT_URL" >> $GITHUB_OUTPUT
 
+    # perhaps it shouldn't be here
     REPORT_PATH=$(echo $MPKIT_URL | cut -d'/' -f3)/$(date +'%Y-%m-%d-%H-%M-%S')
-    echo "REPORT_PATH=$REPORT_PATH" >> $GITHUB_ENV
+    echo "report-path=$REPORT_PATH" >> $GITHUB_OUTPUT
     ;;
 
   test)
