@@ -55,5 +55,3 @@ case $METHOD in
   *)
     echo $METHOD command not found: Usage: ./scripts/ci/repository all | reserve | release
 esac
-
-
