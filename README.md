@@ -2,7 +2,7 @@
 
 ## install
 
-### contact DEVOPS to department to get and add GHA secret [/settings/secrets/actions]
+### contact DEVOPS department to get and add GHA secret [/settings/secrets/actions]
 
     POS_CI_REPO_ACCESS_TOKEN 
     
