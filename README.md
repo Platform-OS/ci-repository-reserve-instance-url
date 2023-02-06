@@ -1,6 +1,11 @@
 # ci-repository-reserve-instance-url
 
 ## install
+
+### contact DEVOPS to department to get and add GHA secret [/settings/secrets/actions]
+
+    POS_CI_REPO_ACCESS_TOKEN 
+    
 ### replace old code like
 
 #### beginning
