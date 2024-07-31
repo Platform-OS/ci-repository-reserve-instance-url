@@ -11,7 +11,7 @@ The reserved instance needs to be **released** after the tests are complete. Thi
 The process works as follows:
 
 - The first available instance that is not currently used by any other GitHub Action is taken and removed from the pool.
-- This prevents running 3 or 4 tests in parallel on the same instance, which would cause conflicts.
+- This prevents multiple projects from running their tests in parallel on the same instance, which would cause conflicts.
 - The instance is reserved for the duration of the tests, regardless of whether the tests fail or succeed.
 - Once the tests are done, the instance is given back to the pool.
 - Without this reserve and release mechanism, we would quickly run out of available instances, preventing new tests from running.
