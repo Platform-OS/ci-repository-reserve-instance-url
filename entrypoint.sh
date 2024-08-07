@@ -16,7 +16,7 @@ request() {
   curl -s  -X$1 \
     -H "Authorization: Bearer $POS_CI_REPO_ACCESS_TOKEN" \
     -H 'Content-type: application/json' \
-    -d "{\"client\":\"$CLIENT\"}" \
+    -d "{\"client\":\"$CLIENT\", \"with_token\": true}" \
     --fail-with-body \
     ${CI_REPO_URL}/${2:-}
 }
@@ -38,10 +38,12 @@ case $METHOD in
       cat .log
       exit 2137
     else
-      INSTANCE_DOMAIN=$(cat .log)
+      INSTANCE_DOMAIN=$(cat .log | jq -r '.domain')
+      MPKIT_TOKEN=$(cat .log | jq -r '.pos_cli_token')
     fi
 
     echo "mpkit-url=https://$INSTANCE_DOMAIN" >> $GITHUB_OUTPUT
+    echo "mpkit-token=$MPKIT_TOKEN" >> $GITHUB_OUTPUT
     echo "report-path=${INSTANCE_DOMAIN}/$(date +'%Y-%m-%d-%H-%M-%S')" >> $GITHUB_OUTPUT
     ;;
 
