@@ -13,6 +13,8 @@ inputs:
     description: 'pos cli ci repo access token'
     required: true
 outputs:
+  mpkit-token:
+    description: 'mpkit token'
   mpkit-url: # id of output
     description: 'reserved instance url'
   report-path:
