@@ -43,7 +43,8 @@ case $METHOD in
     fi
 
     echo "mpkit-url=https://$INSTANCE_DOMAIN" >> $GITHUB_OUTPUT
-    echo "mpkit-token=::add-mask::$MPKIT_TOKEN" >> $GITHUB_OUTPUT
+    echo "::add-mask::$MPKIT_TOKEN"
+    echo "mpkit-token=$MPKIT_TOKEN" >> $GITHUB_OUTPUT
     echo "report-path=${INSTANCE_DOMAIN}/$(date +'%Y-%m-%d-%H-%M-%S')" >> $GITHUB_OUTPUT
     ;;
 
