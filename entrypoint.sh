@@ -41,6 +41,7 @@ case $METHOD in
       MPKIT_TOKEN=$(cat .log)
     fi
 
+    echo "::add-mask::$MPKIT_TOKEN"
     echo "mpkit-token=$MPKIT_TOKEN" >> $GITHUB_OUTPUT
     ;;
 
