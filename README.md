@@ -23,16 +23,6 @@ The process works as follows:
 
 The custom action `Platform-OS/ci-repository-reserve-instance-url@0.1.2` handles reserving and releasing instances, and getting authorization tokens from them. It operates based on the method provided (`reserve`, `get-token` or `release`). The action communicates with the CI repository to manage instance reservations.
 
-## Installation
-
-### Contact DEVOPS
-
-To get started, contact the DEVOPS department to obtain and add the necessary GitHub Actions (GHA) secret:
-
-- **POS_CI_REPO_ACCESS_TOKEN**
-
-You can add this secret in your repository settings under **Settings** -> **Security** -> **Secrets and variables** -> **Actions**.
-
 ## Replace old worfklow code like
 
 Replace your existing code for releasing an instance:
