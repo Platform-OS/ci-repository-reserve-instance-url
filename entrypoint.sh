@@ -38,6 +38,7 @@ case $METHOD in
       cat .log
       exit 2137
     else
+      echo $(cat .log)
       MPKIT_TOKEN=$(cat .log)
     fi
 
